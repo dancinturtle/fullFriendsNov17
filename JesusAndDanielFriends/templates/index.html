@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+  </head>
+  <body>
+    <h1>Friend:</h1>
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Date Met:</th>
+            <th></th>
+        </tr>
+         {% for friends in all_friends: %}
+         <tr>
+            <td>{{ friends['name'] }}</td>
+            <td>{{ friends['age'] }}</td>
+            <td>{{ friends['dateOf'] }}</td>
+            <td>{{ friends['yearOf'] }}</td>
+         </tr> 
+         {% endfor %}
+
+    </table>
+    <h1>Add Friend</h1>
+    <form action="/add_friend" method="post">
+        <p>Name:<input type="text" name="fullName"></p>       
+        <p>Age:<input type="text" name="friendAge"></p>
+        <input type="submit" name="addFriend" value="Add">        
+    </form>
+  </body>
+</html>
