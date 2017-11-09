@@ -38,4 +38,3 @@ class MySQLConnection(object):
 # This is the module method to be called by the user in server.py. Make sure to provide the db name!
 def MySQLConnector(app, db):
     return MySQLConnection(app, db)
-
