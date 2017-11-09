@@ -1,0 +1,9 @@
+.container {
+    max-width: 750px;
+    margin: 20px auto;
+}
+
+.sub-container {
+    max-width: 550px;
+    margin: 20px auto;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/style.css">  
+    <!-- <link rel="stylesheet" href={{url_for( 'static', filename='style.css' )}}> -->
+    <title>Friends</title>
+</head>
+
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% for category, message in messages%}
+                {% if category == 'error' %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% elif category == 'waring' %}
+                    <div class="alert alert-warning" role="alert">
+                        {{ message }}
+                     </div>
+                {% endif %}    
+            {% endfor %}
+        {% endwith %}
+        <h2>Friends:</h2>
+        <table class="table table-bordered">
+            <thead class="thead-light text-center">
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th colspan=2>Friend Since</th>
+                    <!-- <th></th> -->
+                </tr>
+            </thead>
+                <tbody>
+                    {% for friend in all_friends %}
+                        <tr>
+                            <td scope="row">{{friend['name']}}</td>
+                            <td>{{friend['age']}}</td>
+                            <td>{{friend['friend_since']}}</td>
+                            <td>{{friend['year']}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+        <div class="sub-container">
+            <h2>Add a Friend</h2>
+            <form action='/add_friend' method='POST'>
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" class="form-control" name="first_name" id="first_name" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">John</small>
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" class="form-control" name="last_name" id="last_name" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">Doe</small>
+                </div>
+                <div class="form-group">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" class="form-control" name="dob" id="dob" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">01/01/1901</small>
+                </div>
+                <div class="form-group">
+                    <label for="friend_since">Friend Since:</label>
+                    <input type="date" class="form-control" name="friend_since" id="friend_since" aria-describedby="helpId" placeholder="">
+                    <small id="helpId" class="form-text text-muted">01/01/1901</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary" value="Add">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
