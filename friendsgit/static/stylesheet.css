@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+div{
+    text-align: center;
+    font-family: sans-serif;
+
+}
+div.friends{
+    margin-top: 20px;
+    width: 400px;
+    display: inline-block;
+}
+h1{
+    margin-bottom: 10px;
+}
+h2{
+    margin-bottom: 10px;
+}
+div.form{
+    margin-top: 20px;
+    width: 400px;
+    display: inline-block;
+}
