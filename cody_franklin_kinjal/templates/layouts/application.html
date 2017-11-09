@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/application.css') }}">
+  </head>
+  <body>
+    <div class="container my-5">
+      {% with messages = get_flashed_messages(category_filter=['error']) %}
+        {% if messages %}
+          <div class="alert alert-danger">
+            {% for message in messages %}
+              <p class="mb-0">{{message}}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+      
+      {% with messages = get_flashed_messages(category_filter=['success']) %}
+        {% if messages %}
+          <div class="alert alert-success">
+            {% for message in messages %}
+              <p class="mb-0">{{message}}</p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      {% endwith %}
+
+      {% block container %}{% endblock %}
+    </div>
+  </body>
+</html>
