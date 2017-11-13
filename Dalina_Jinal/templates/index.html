@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Friends</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <!-- we can use the line below to see all of our data in our template -->
+        <!-- {{ all_friends }} -->
+        <h1>These are all my friends!</h1>
+        <!-- with all the data we can then construct a more structured output -->
+        
+        <table>
+            <tr id="labels">
+                <th>Name</th>
+                <th>Age</th>
+                <th>Friend Since</th>
+            </tr>
+            {% for friend in all_friends: %}
+                <tr>
+                    <td>{{ friend['first_name'] }} {{ friend['last_name'] }}</td>
+                    <td>{{ friend['age'] }}</td>
+                    <td>{{ friend['created_at'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <h2>Add a Friend</h2>
+        <form action='/friends' method='POST'>
+            <label for="first_name">First Name:
+                <input type="text" name="first_name" id="first_name">
+            </label>
+            <br>
+            <label for="last_name">Last Name:
+                <input type="text" name="last_name" id="last_name">
+            </label>
+            <br>
+            <label for="occupation">Age :
+                <input type="text" name="age" id="age">
+            </label>
+            <br>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+</body>
+
+</html>
