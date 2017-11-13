@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Our Fake Friends, View and Add table</title>
+</head>
+<body>
+	<h1> Our Fake Friends!</h1>
+	<table>
+		<div>
+		
+
+			{% for friend in all_friends: %}
+			<p> Name: {{ friend['first_name'] }} </p>
+			<p> Age: {{ friend['age'] }}</p>
+			<p> Date added: {{ friend['created_at'] }} </p>
+			
+			{% endfor %}
+		
+	</div>
+	<div>
+	<h1>Add a friend to the list.</h1>
+	<form action='/friends' method='POST'>
+	    <label for="first_name">First Name:<input type="text" name="first_name" id="first_name"></label>
+	    <label for="age">Age:<input type="text" name="age" id="age"></label>
+	    <input type="submit" value="Add">
+	   </form>
+
+	</div>
+</html>
