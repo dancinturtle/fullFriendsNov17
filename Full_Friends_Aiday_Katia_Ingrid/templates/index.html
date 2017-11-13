@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Full Friends</title>
+</head>
+<body>
+</body>
+    <h1>Friends:</h1>
+    {% for friend in full_friend %}
+    <p>First Name:{{friend['first_name']}}</p>
+    <p>Last Name:{{friend['last_name']}}</p>
+    <p>Age:{{friend['age']}}</p>
+    <p>Friend Since:{{friend['created_at']}}</p>
+    {% endfor %}
+
+    <h1>Add a Friend:</h1>
+    <form action='/process' method="POST">
+        First Name:<input type='text' name='fname'>
+        Last Name:<input type='text' name='lname'>
+        Age:<input type='text' name='age'>
+        <input type='submit' value='Submit'>
+    </form>
+
+    
+</body>
+</html>
