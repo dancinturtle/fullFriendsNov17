@@ -1,0 +1,67 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `friendsdb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `friendsdb` ;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`friends`
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `friends`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `friends` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `age`int NOT NULL,
+  `friends_Since` varchar(45) NOT NULL DEFAULT "Nov 8th",
+  `Year` int NOT NULL DEFAULT 2017,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=201 DEFAULT CHARSET=utf8;
+
+USE `friendsdb`;
+INSERT INTO friends (name, age, friends_Since, YEAR)
+VALUES ("Jay", 25, "Jan 15th", 2000);
+
+INSERT INTO friends (name, age, friends_Since, YEAR)
+VALUES ("sam", 35, "Sep 25th", 2015);
+
+INSERT INTO friends (name, age, friends_Since, YEAR)
+VALUES ("Mary", 23, "Aug 20th", 2017);
+
+INSERT INTO friends (name, age, friends_Since, YEAR)
+VALUES ("LEO", 20, "Jan 20th", 2016);
+
+INSERT INTO friends (name, age )
+VALUES ("Mickey", 10);
+
+select * from friends;
+
+
+------------
+-- Previous table data
+CREATE TABLE IF NOT EXISTS `friendsdb`.`friend_list` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `first_name` VARCHAR(45) NULL,
+  `last_name` VARCHAR(45) NULL,
+  `occupation` VARCHAR(45) NULL,
+  `created_at` DATETIME NULL,
+  `updated_at` DATETIME NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
